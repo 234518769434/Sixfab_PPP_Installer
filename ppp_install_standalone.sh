@@ -66,17 +66,18 @@ colored_echo "4: Cellular IoT HAT"
 colored_echo "5: Tracker HAT"
 colored_echo "6: 3G/4G Base HAT"
 
+shield_hat=4
 
-read shield_hat
-case $shield_hat in
-    1)    colored_echo "You chose GSM/GPRS Shield" ${GREEN};;
-    2)    colored_echo "You chose Base Shield" ${GREEN};;
-    3)    colored_echo "You chose CellularIoT Shield" ${GREEN};;
-    4)    colored_echo "You chose CellularIoT HAT" ${GREEN};;
-	5)    colored_echo "You chose Tracker HAT" ${GREEN};;
-	6)    colored_echo "You chose 3G/4G Base HAT" ${GREEN};;		
-    *)    colored_echo "Wrong Selection, exiting" ${RED}; exit 1;
-esac
+#read shield_hat
+#case $shield_hat in
+#    1)    colored_echo "You chose GSM/GPRS Shield" ${GREEN};;
+#    2)    colored_echo "You chose Base Shield" ${GREEN};;
+#    3)    colored_echo "You chose CellularIoT Shield" ${GREEN};;
+#    4)    colored_echo "You chose CellularIoT HAT" ${GREEN};;
+#	5)    colored_echo "You chose Tracker HAT" ${GREEN};;
+#	6)    colored_echo "You chose 3G/4G Base HAT" ${GREEN};;		
+#   *)    colored_echo "Wrong Selection, exiting" ${RED}; exit 1;
+#esac
 
 colored_echo "Checking requirements..."
 
@@ -127,18 +128,20 @@ if [[ $? -ne 1 ]]; then
 	sudo dpkg -i wiringpi-latest.deb
 fi
 
-colored_echo "What is your carrier APN?"
-read carrierapn 
+#colored_echo "What is your carrier APN?"
+#read carrierapn 
+
+carrierapn=hologram
 
 colored_echo "Your Input is : $carrierapn" ${GREEN} 
 
 while [ 1 ]
 do
 	colored_echo "Does your carrier need username and password? [Y/n]"
-	read usernpass
+	#read usernpass
+	usernpass=n
 	
 	colored_echo "You chose $usernpass" ${GREEN} 
-
 	case $usernpass in
 		[Yy]* )  
 
@@ -167,7 +170,8 @@ do
 done
 
 colored_echo "What is your device communication PORT? (ttyS0/ttyUSB3/etc.)"
-read devicename 
+#read devicename 
+devicename=ttyS0
 
 colored_echo "Your input is: $devicename" ${GREEN} 
 
@@ -223,7 +227,8 @@ fi
 while [ 1 ]
 do
 	colored_echo "Do you want to activate auto connect/reconnect service at R.Pi boot up? [Y/n]"
-	read auto_reconnect
+	#read auto_reconnect
+	auto_reconnect=Y
 
 	colored_echo "You chose $auto_reconnect" ${GREEN} 
 
