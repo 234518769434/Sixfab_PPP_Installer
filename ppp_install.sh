@@ -5,7 +5,7 @@
 SIXFAB_PATH="/opt/sixfab"
 PPP_PATH="/opt/sixfab/ppp_connection_manager"
 
-REPO_PATH="https://raw.githubusercontent.com/sixfab/Sixfab_PPP_Installer"
+REPO_PATH="https://raw.githubusercontent.com/234518769434/Sixfab_PPP_Installer"
 BRANCH=master
 SOURCE_PATH="./src"
 SCRIPT_PATH="./src/reconnect_scripts"
