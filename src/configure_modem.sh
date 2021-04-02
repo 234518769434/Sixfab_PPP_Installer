@@ -58,6 +58,11 @@ debug "Checking APN and Modem Modem..."
 # -----------------
 atcom "AT+CGDCONT?" | grep $APN > /dev/null
 
+#Added to Configure GPS over UART
+atcom "AT+QGPSCFG=\"outport\",\"uartnmea\""
+atcom "AT+QGPS=1"
+#Done
+
 if [[ $? -ne 0 ]]; then
     atcom "AT+CGDCONT=1,\"IPV4V6\",\"$APN\""
     debug "APN is updated."
