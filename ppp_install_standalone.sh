@@ -2,6 +2,8 @@
 #Config specific
 sudo sed -i -e '$aenable_uart=1' /boot/config.txt # Enables Serial without raspi-config
 echo dtoverlay=uart5 >> /boot/config.txt
+apt install git dkms hostapd -y
+git clone https://github.com/SonarWireless/rtl8812au.git
 
 
 # Re-created on November 27, 2020 by Yasin Kaya (selengalp) 
@@ -327,6 +329,10 @@ do
 		*)   colored_echo "Wrong Selection, Select among Y or n" ${RED};;
 	esac
 done
+
+#Custom Drivers for NIC
+cd rtl8812au
+./dkms-install.sh
 
 read -p "Press ENTER key to reboot" ENTER
 
