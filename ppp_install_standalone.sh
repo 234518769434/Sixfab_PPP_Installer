@@ -1,7 +1,10 @@
 #!/bin/bash
+#Config specific
+sudo sed -i -e '$aenable_uart=1' /boot/config.txt # Enables Serial without raspi-config
+echo dtoverlay=uart5 >> /boot/config.txt
+
 
 # Re-created on November 27, 2020 by Yasin Kaya (selengalp) 
-
 SIXFAB_PATH="/opt/sixfab"
 PPP_PATH="/opt/sixfab/ppp_connection_manager"
 
