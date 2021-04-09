@@ -1,7 +1,7 @@
 #!/bin/bash
 #Config specific
-apt update
-apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 sudo sed -i 's/console=serial0,115200 //' /boot/cmdline.txt # Removes Serial Console from cmdline.txt
 sudo sed -i -e '$aenable_uart=1' /boot/config.txt # Enables Serial without raspi-config
 echo dtoverlay=uart5 >> /boot/config.txt
@@ -317,7 +317,7 @@ done
 
 #Custom Drivers for NIC
 cd rtl8812au
-./dkms-install.sh
+sudo ./dkms-install.sh
 
 read -p "Press ENTER key to reboot" ENTER
 
